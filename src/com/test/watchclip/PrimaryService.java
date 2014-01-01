@@ -1,9 +1,9 @@
 package com.test.watchclip;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.*;
-import android.app.*;
+
 import android.util.Log;
 import android.widget.Toast;
 import java.util.Timer;
@@ -31,6 +31,17 @@ public class PrimaryService extends Service
     {           
         timer.scheduleAtFixedRate(new mainTask(), 0, 5000);
     }
+       @Override
+   public void onStart(Intent intent, int startId)
+   {
+      Toast.makeText(this, "My Service Started", Toast.LENGTH_LONG).show();
+   }
+
+   @Override
+   public void onDestroy()
+   {
+      Toast.makeText(this, "Service Stopped ...", Toast.LENGTH_SHORT).show();
+   }
 
     private class mainTask extends TimerTask
     { 
@@ -46,15 +57,6 @@ public class PrimaryService extends Service
         {
             Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
         }
-   @Override
-   public void onStart(Intent intent, int startId)
-   {
-      Toast.makeText(this, "My Service Started", Toast.LENGTH_LONG).show();
-   }
-
-   @Override
-   public void onDestroy()
-   {
-      Toast.makeText(this, "MyService Stopped", Toast.LENGTH_LONG).show();
-   }
-}
+       };
+       }   
+};
