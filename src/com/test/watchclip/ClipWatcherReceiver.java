@@ -7,10 +7,10 @@ import android.content.Intent;
 public class ClipWatcherReceiver extends BroadcastReceiver
 {
     @Override
-    public void onReceive(Context context, Intent intent) 
+    public void onReceive(Context context, Intent arg1) 
     {
             Toast.makeText(context, "Booooooot", Toast.LENGTH_SHORT).show();
-
+            ClipWatcherReceiverClipWatcherReceiverClipWatcherReceiverClipWatcherReceiverClipWatcherReceiverClipWatcherReceiver
     }
 }
 }
