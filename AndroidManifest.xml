@@ -4,7 +4,21 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="17"/>
+            < uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application android:label="@string/app_name">
- <service android:enabled="true" android:name=".MyService" />
+     < service android:name=".PrimaryService">
+       < intent-filter>
+       < action
+       android:name = "com.test.watchclip.PrimaryService">
+       < /action>
+       < /intent-filter>
+       < /service>
+       < receiver android:name=".ClipWatcherReceiver">
+       < intent-filter>
+       < action
+       android:name ="android.intent.action.BOOT_COMPLETED">
+       < /action>
+       < /intent-filter>
+       < /receiver>
     </application>
 </manifest>
